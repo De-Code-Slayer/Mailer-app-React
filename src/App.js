@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from './components/Home';
+import Message from './components/Message';
 import './App.css';
+import Inbox from "./components/Inbox";
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>     
+      <Routes>
+         <Route path="/" element={  <Home /> } ></Route>
+         <Route path="/inbox" element={ <Inbox /> } ></Route>
+         <Route path="/message" element={ <Message /> } ></Route>
+         
+       </Routes>
+    </Router>
+        //  <Route path="/message" component={Message} />     
+            // <Home />
+          //  <Inbox messages={messages}/> 
+    
   );
 }
 
