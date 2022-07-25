@@ -36,11 +36,6 @@ function Message(props) {
       ] 
       
       const message = messageslist.find((message => message.id===props.id )
-// {
-//     // return <> 
-//     // <Messagebox key={message.id} messages={message} />
-//     // </>
-// }
  );
    return <><Messagebox message={message} /></>
 
