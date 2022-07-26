@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { messageslist } from "../data";
+import { useUser } from "../ContextProviders";
+import { messageslist, setMessageList } from "../data";
+import { loginUser } from "../functions";
 // import React, { useState } from "react";
 
 function Home() {
     // const [message, setNumber] = useState("[0,1,2,3,4]");
     // "Jaime"
     const [user, setUser] = useState(null);
-    const newmessage = messageslist.filter((message => message.isRead === false)).length;
-    const number = messageslist.length;
+    const _user = useUser()
+    const newmessage = _user.messages?.filter((message => message.isread === 0)).length;
     const [email, setEmail] = useState('')
 
     //  const toggle = () => {
@@ -16,7 +18,13 @@ function Home() {
     //   };
 
     const getUser =() => {
-        setUser("Jaime")
+        loginUser(email).then(res => {
+            console.log(res)
+            setMessageList(res.messages)
+            _user.addUserMessages(res.messages)
+            _user.addUserData(res.user)
+            setUser(res.user)
+        })
     }
 
     return (
@@ -25,7 +33,7 @@ function Home() {
                 user ?
                     <div>
                         <h1 className="text-xl font-bold">MAILER APP</h1>
-                        <p className="text-lg font-light">Hello {user} you have {newmessage} new message(s)</p>
+                        <p className="text-lg font-light">Hello {user.name} you have {newmessage} new message(s)</p>
                         <br />
                         <Link to='/inbox' className="my-5 p-4 py-2 bg-purple-800 text-white font-bold"> View Inbox</Link>
                     </div>
