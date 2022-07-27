@@ -6,16 +6,12 @@ import { loginUser } from "../functions";
 // import React, { useState } from "react";
 
 function Home() {
-    // const [message, setNumber] = useState("[0,1,2,3,4]");
-    // "Jaime"
+    
     const [user, setUser] = useState(null);
     const _user = useUser()
     const newmessage = _user.messages?.filter((message => message.isread === 0)).length;
     const [email, setEmail] = useState('')
 
-    //  const toggle = () => {
-    //       console.log("toggle");
-    //   };
 
     const getUser =() => {
         loginUser(email).then(res => {
