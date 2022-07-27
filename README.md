@@ -1,8 +1,22 @@
-# Predefined Users
-these users are predefined in the
+# Start this Server Firstbefore the React app
+run this on port 3000
 
-name: 
-email:
+
+
+# Predefined Users
+these users are predefined in the app use the email to login
+
+name: Zumaamule
+email: zumaamule@mailerapp.com
+
+name: Jaime
+email: jaime@mailerapp.com
+
+name: Tyrion
+email: tyrion@mailerapp.com
+
+name: Lanister
+email: lanister@mailerapp.com
 
 
 
