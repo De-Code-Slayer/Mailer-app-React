@@ -1,5 +1,6 @@
 # Start this Server Firstbefore the React app
-run this on port 3000
+run this on port 3001
+run the express server on port 3000
 
 
 
